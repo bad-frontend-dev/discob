@@ -1,0 +1,20 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.7",
+        "preact": "^10.22.1",
+        "socket.io-client": "^4.8.1"
+    },
+    "devDependencies": {
+        "@preact/preset-vite": "^2.9.0",
+        "@types/node": "^22.10.2",
+        "sass": "^1.83.0",
+        "typescript": "^5.7.2",
+        "vite": "^5.3.3"
+    }
+}

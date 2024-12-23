@@ -1,0 +1,62 @@
+services:
+    frontend:
+        container_name: frontend
+        build:
+            context: ./client
+            target: build
+        networks:
+            - backend
+            - frontend
+        depends_on:
+            - backend
+        volumes:
+            - ./client:/app
+            - /client/node_modules/
+        expose:
+            - "${CLIENT_INTERNAL_PORT}"
+        ports:
+            - "${CLIENT_EXTERNAL_PORT}:${CLIENT_INTERNAL_PORT}"
+        env_file:
+            - .env
+        command: npm run dev
+    backend:
+        container_name: api
+        build:
+            context: ./server
+            target: base
+        networks:
+            - frontend
+            - backend
+            - mongodb
+        depends_on:
+            - mongo
+        volumes:
+            - ./server:/server
+            - /server/node_modules/
+        expose:
+            - "${SERVER_INTERNAL_PORT}"
+        env_file:
+            - .env
+        links:
+            - mongo
+        command: npm run dev
+    mongo:
+        image: mongo:latest
+        container_name: mongodb
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+            MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+        ports:
+            - 27017:27017
+        networks:
+            - mongodb
+        volumes:
+            - mongodb_data:/data/db
+
+networks:
+    frontend:
+    backend:
+    mongodb:
+volumes:
+    mongodb_data:

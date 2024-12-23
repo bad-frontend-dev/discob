@@ -1,0 +1,13 @@
+services:
+    frontend:
+        build:
+          target: production
+        volumes:
+          - /app/dist
+        command: null
+    backend:
+        build:
+            target: production
+        volumes:
+          - /server/build
+        command: npm run start
