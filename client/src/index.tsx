@@ -1,10 +1,8 @@
 import { render } from "preact";
-import { useState, useEffect } from "preact/hooks";
-import { socket } from "./socket";
 
 import "./style.scss";
 
-export function App() {
+function App() {
     return <div></div>;
 }
 
