@@ -1,15 +1,5 @@
 import { RoomData } from "@backend/types";
 
-export function RoomList({ rooms }: { rooms: RoomData[] }) {
-    return (
-        <div id="rooms">
-            {rooms.map((room) => {
-                <RoomButton room={room} />;
-            })}
-        </div>
-    );
-}
-
 export function RoomButton({ room }: { room: RoomData }) {
     return (
         <button class="room-button">
