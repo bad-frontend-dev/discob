@@ -16,7 +16,7 @@
     --font-main: "Open Sans", sans-serif;
 }
 
-#content {
+#app {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -78,6 +78,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-height: 0;
 
     hr {
         background-color: var(--surface2);
@@ -98,6 +99,10 @@ body {
         display: flex;
         flex-direction: column;
         min-height: fit-content;
+    }
+
+    &.minimize {
+        margin-left: -270px;
     }
 }
 
