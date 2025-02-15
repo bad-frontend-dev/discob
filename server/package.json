@@ -1,0 +1,7 @@
+{
+  "name": "server",
+  "private": true,
+  "scripts": {},
+  "type": "module",
+  "license": "ISC"
+}

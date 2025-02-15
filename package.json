@@ -1,0 +1,8 @@
+{
+  "name": "discob",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {}
+}
