@@ -1,13 +1,14 @@
 import express, { Request, Response } from "express";
 
 const app = express();
+const PORT = 9000;
 
 app.get("/gamer", (req: Request, res: Response) => {
 	res.send({
-		hi: "hi",
+		hi: "hiiiii",
 	});
 });
 
-app.listen(9000, () => {
-	console.log("server started on port 9000");
+app.listen(PORT, () => {
+	console.log(`server started on port ${PORT}`);
 });

@@ -1,14 +1,19 @@
-import esbuild from "esbuild";
+import { build, context } from "esbuild";
 
-await esbuild
-	.build({
-		bundle: true,
-		entryPoints: ["src/index.ts"],
-		outfile: "build/server.js",
-		platform: "node",
-		packages: "external",
-		logLevel: "info",
-	})
-	.catch(() => {
-		process.exit(1);
-	});
+const isWatching = process.argv.includes("--watch");
+
+const options = {
+	bundle: true,
+	entryPoints: ["src/index.ts"],
+	outfile: "build/server.js",
+	platform: "node",
+	packages: "external",
+	logLevel: "info",
+};
+
+if (isWatching) {
+	const ctx = await context(options);
+	await ctx.watch();
+} else {
+	await build(options);
+}
