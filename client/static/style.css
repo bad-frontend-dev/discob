@@ -1,0 +1,297 @@
+:root {
+	--lavender: #b7bdf8;
+	--text: #cad3f5;
+	--subtext1: #b8c0e0;
+	--subtext0: #a5adcb;
+	--overlay2: #939ab7;
+	--overlay1: #8087a2;
+	--overlay0: #6e738d;
+	--surface2: #5b6078;
+	--surface1: #494d64;
+	--surface0: #363a4f;
+	--base: #24273a;
+	--mantle: #1e2030;
+	--crust: #181926;
+	--border-style: ;
+	--font-main: "Open Sans", sans-serif;
+}
+
+#content {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+button,
+input,
+textarea {
+	border-width: 0;
+	background-color: transparent;
+}
+
+span {
+	font-family: var(--font-main);
+}
+
+.utility-button {
+	cursor: pointer;
+
+	&:hover {
+		background-color: var(--surface0);
+	}
+}
+
+@media screen and (max-width: 640px) {
+	#sidebar {
+		margin-left: -270px;
+	}
+
+	#send-message-button {
+		display: block !important;
+	}
+}
+
+body {
+	margin: 0;
+}
+
+#root {
+	height: 100vh;
+	width: 100vw;
+	flex-direction: column;
+	display: flex;
+}
+
+#main {
+	flex-grow: 1;
+	height: calc(100% - 55px);
+	display: flex;
+	flex-direction: row;
+}
+
+#sidebar {
+	flex-grow: 1;
+	max-width: 250px;
+	background-color: var(--mantle);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 10px;
+
+	hr {
+		background-color: var(--surface2);
+		margin-top: 10px;
+		margin-bottom: 10px;
+		border-width: 0;
+		min-height: 2px;
+		width: 100%;
+	}
+
+	.top-div {
+		display: flex;
+		flex-direction: column;
+		min-height: 0;
+	}
+
+	.bottom-div {
+		display: flex;
+		flex-direction: column;
+		min-height: fit-content;
+	}
+}
+
+#top-nav {
+	max-width: 100%;
+	min-height: 0;
+	display: flex;
+
+	#left-thing {
+		border-bottom: solid 3px var(--crust);
+		background-color: var(--mantle);
+		max-width: 250px;
+		padding: 10px;
+		flex-grow: 1;
+	}
+
+	#right-thing {
+		background-color: var(--base);
+		border-bottom: solid 3px var(--mantle);
+		flex-grow: 1;
+		display: flex;
+		align-items: center;
+
+		.show-room {
+			margin: 10px;
+			color: var(--text);
+		}
+	}
+}
+
+#top-info {
+	height: 30px;
+}
+
+#minimize-sidebar {
+	height: 36px;
+	width: 36px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+
+	.icon {
+		stroke: var(--text);
+	}
+}
+
+#settings {
+	padding: 5px;
+	width: 100%;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+
+	.icon {
+		width: 18px;
+		fill: var(--text);
+	}
+
+	span {
+		margin-left: 10px;
+		font-size: 16px;
+		color: var(--text);
+	}
+}
+
+#hide-people {
+	height: 36px;
+	width: 36px;
+
+	.icon {
+		width: 24px;
+		height: 24px;
+		fill: var(--text);
+	}
+}
+
+#discob-text {
+	color: var(--text);
+	font-size: 22px;
+}
+
+#chat {
+	background-color: var(--base);
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+#displayed-messages {
+	margin-top: auto;
+	overflow-y: scroll;
+	margin-bottom: 10px;
+}
+
+#message-components {
+	width: 100%;
+	display: flex;
+	align-items: center;
+
+	#message-input {
+		margin: 0px 10px 10px 10px;
+		flex-grow: 1;
+		height: 25px;
+		color: var(--text);
+		font-family: var(--font-main);
+		font-size: 17px;
+		background-color: var(--mantle);
+		border-radius: 5px;
+		padding: 10px 5px 10px 5px;
+		resize: none;
+
+		&:focus {
+			border-width: 0px;
+			outline: none;
+		}
+
+		&:placeholder {
+			color: var(--overlay0);
+		}
+	}
+
+	#send-message-button {
+		height: 45px;
+		width: 45px;
+		display: none;
+
+		.icon {
+			fill: var(--text);
+		}
+	}
+}
+
+.message {
+	display: flex;
+	flex-direction: column;
+	padding: 3px 10px 3px 10px;
+
+	&:hover {
+		background-color: var(--mantle);
+	}
+
+	.username {
+		font-size: 18px;
+	}
+
+	.message-text {
+		font-size: 16px;
+		color: var(--text);
+	}
+}
+
+#rooms-label {
+	color: var(--text);
+	font-size: 16px;
+}
+
+#rooms {
+	flex-grow: 1;
+	overflow-y: scroll;
+}
+
+.room-button {
+	align-items: center;
+	padding: 5px;
+	display: flex;
+	border-radius: 5px;
+	width: 100%;
+
+	&:hover,
+	&.focused {
+		cursor: pointer;
+		background-color: var(--surface0);
+	}
+
+	&.focused .room-name {
+		color: var(--text);
+	}
+
+	&:hover .room-name {
+		color: var(--text);
+	}
+
+	.room-name {
+		color: var(--overlay2);
+		font-size: 14px;
+		font-weight: bold;
+		margin-left: 10px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.room-image {
+		max-width: 32px;
+		max-height: 32px;
+		border-radius: 50%;
+	}
+}
