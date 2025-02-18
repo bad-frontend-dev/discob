@@ -33,8 +33,8 @@
 	}
 
 	#sidebar {
-		flex-grow: 1;
-		max-width: 250px;
+		flex-shrink: 0;
+		width: 250px;
 		background-color: var(--mantle);
 		display: flex;
 		flex-direction: column;

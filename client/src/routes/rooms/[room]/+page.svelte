@@ -1,13 +1,21 @@
 <script lang="ts">
 	import type { PageProps } from "./$types";
-	import type { Room } from "$lib/types";
+	import type { Message, Room } from "$lib/types";
 	import Topnav from "./TopNav.svelte";
 	import Sidebar from "./Sidebar.svelte";
+	import Chat from "./Chat.svelte";
 
 	const testRooms: Room[] = [
 		{
 			image: "https://cdn.discordapp.com/avatars/535321378291843074/8bfa4b4f795280b635b3fc633ba0a30d.webp",
 			name: "sam",
+		},
+	];
+
+	const testMessages: Message[] = [
+		{
+			username: "test",
+			text: "hi",
 		},
 	];
 
@@ -18,6 +26,7 @@
 	<Topnav room={data.room} />
 	<div id="main">
 		<Sidebar rooms={testRooms} currentRoom={data.room} />
+		<Chat messages={testMessages} />
 	</div>
 </div>
 
