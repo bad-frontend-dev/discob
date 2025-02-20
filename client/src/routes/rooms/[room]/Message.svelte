@@ -3,7 +3,9 @@
 </script>
 
 <div class="message">
-	<span class="username">{username}</span>
+	{#if username}
+		<span class="username">{username}</span>
+	{/if}
 	<span class="message-text">{text}</span>
 </div>
 

@@ -10,6 +10,26 @@
 			username: "test",
 			text: "hi",
 		},
+		{
+			username: "test",
+			text: "hi",
+		},
+		{
+			username: "another username",
+			text: "hi",
+		},
+		{
+			username: "test",
+			text: "hi",
+		},
+		{
+			username: "test",
+			text: "hi",
+		},
+		{
+			username: "test",
+			text: "hi",
+		},
 	];
 
 	let { data }: PageProps = $props();

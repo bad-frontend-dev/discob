@@ -13,6 +13,11 @@ const testRooms: Room[] = [
 		id: "reallycoolroom",
 	},
 	{
+		image: "https://cdn.discordapp.com/channel-icons/1261853769411465287/581bc2f9810b21effb29d613380e6561.webp",
+		name: "40 bingles",
+		id: "colonthree",
+	},
+	{
 		image: "https://cdn.discordapp.com/avatars/535321378291843074/8bfa4b4f795280b635b3fc633ba0a30d.webp",
 		name: "meow",
 		id: "meow",

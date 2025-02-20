@@ -1,15 +1,25 @@
 <script lang="ts">
 	import Message from "./Message.svelte";
+	import type { Message as MessageType } from "$lib/types";
 
-	let { messages } = $props();
+	let { messages }: { messages: MessageType[] } = $props();
+
+	const formattedMessages: MessageType[] = messages.map((message, index) => {
+		if (messages[index - 1]?.username === message.username) {
+			return {
+				username: "",
+				text: message.text,
+			};
+		}
+		return message;
+	});
 </script>
 
 <div id="chat">
 	<div id="displayed-messages">
-		{#each messages as { username, text }}
+		{#each formattedMessages as { username, text }}
 			<Message {username} {text} />
 		{/each}
-		<!-- TODO: hide username if previous username is the same -->
 	</div>
 	<div id="message-components">
 		<textarea id="message-input" placeholder="enter message here"></textarea>
