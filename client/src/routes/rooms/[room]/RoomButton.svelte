@@ -1,13 +1,13 @@
 <script lang="ts">
 	import type { Room } from "$lib/types";
-	const { room, currentRoom }: { room: Room; currentRoom: string } = $props();
-	const focused = currentRoom === room.name;
+	const { room, currentRoom }: { room: Room; currentRoom: Room | undefined } = $props();
+	let focused = $derived(currentRoom?.id === room.id);
 </script>
 
-<button class="room-button {focused && 'focused'}">
+<a class="room-button {focused && 'focused'}" href="/rooms/{room.id}">
 	<img class="room-image" src={room.image} alt={room.name} draggable="false" />
 	<span class="room-name">{room.name}</span>
-</button>
+</a>
 
 <style>
 	.room-button {
@@ -15,7 +15,7 @@
 		padding: 5px;
 		display: flex;
 		border-radius: 5px;
-		width: 100%;
+		text-decoration: none;
 
 		&:hover,
 		&.focused {

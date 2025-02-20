@@ -2,7 +2,7 @@
 	import type { Room } from "$lib/types";
 	import RoomButton from "./RoomButton.svelte";
 	import Settings from "./Settings.svelte";
-	let { rooms, currentRoom }: { rooms: Room[]; currentRoom: string } = $props();
+	let { rooms, currentRoom }: { rooms: Room[]; currentRoom: Room | undefined } = $props();
 </script>
 
 <div id="sidebar">
