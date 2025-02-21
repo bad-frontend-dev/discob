@@ -5,41 +5,14 @@
 	import Sidebar from "./Sidebar.svelte";
 	import Chat from "./Chat.svelte";
 
-	const testMessages: Message[] = [
-		{
-			username: "test",
-			text: "hi",
-		},
-		{
-			username: "test",
-			text: "hi",
-		},
-		{
-			username: "another username",
-			text: "hi",
-		},
-		{
-			username: "test",
-			text: "hi",
-		},
-		{
-			username: "test",
-			text: "hi",
-		},
-		{
-			username: "test",
-			text: "hi",
-		},
-	];
-
 	let { data }: PageProps = $props();
 </script>
 
 <div id="content">
-	<Topnav room={data.room?.name} />
+	<Topnav room={data.room.room?.name} />
 	<div id="main">
-		<Sidebar rooms={data.roomsList} currentRoom={data.room} />
-		<Chat messages={testMessages} />
+		<Sidebar rooms={data.room.roomsList} currentRoom={data.room.room} />
+		<Chat messages={data.messages} />
 	</div>
 </div>
 

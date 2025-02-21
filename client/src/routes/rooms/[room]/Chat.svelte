@@ -2,17 +2,19 @@
 	import Message from "./Message.svelte";
 	import type { Message as MessageType } from "$lib/types";
 
-	let { messages }: { messages: MessageType[] } = $props();
+	const { messages }: { messages: MessageType[] } = $props();
 
-	const formattedMessages: MessageType[] = messages.map((message, index) => {
-		if (messages[index - 1]?.username === message.username) {
-			return {
-				username: "",
-				text: message.text,
-			};
-		}
-		return message;
-	});
+	const formattedMessages: MessageType[] = $derived(
+		messages.map((message, index) => {
+			if (messages[index - 1]?.username === message.username) {
+				return {
+					username: "",
+					text: message.text,
+				};
+			}
+			return message;
+		}),
+	);
 </script>
 
 <div id="chat">

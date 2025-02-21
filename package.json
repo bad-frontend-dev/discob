@@ -10,6 +10,10 @@
 		"start:server": "npm run start -w server",
 		"start:client": "npm run start -w client",
 		"dev:server": "npm run dev -w server",
-		"dev:client": "npm run dev -w client"
+		"dev:client": "npm run dev -w client",
+		"dev": "concurrently \"npm run dev -w client\" \"npm run dev -w server\""
+	},
+	"devDependencies": {
+		"concurrently": "^9.1.2"
 	}
 }

@@ -1,12 +1,55 @@
 import express, { Request, Response } from "express";
+import cors from "cors";
 
 const app = express();
+
+app.use(
+	cors({
+		origin: "http://localhost:5173",
+	}),
+);
+
 const PORT = 9000;
 
-app.get("/gamer", (req: Request, res: Response) => {
-	res.send({
-		hi: "hiiiii",
-	});
+const tempMessages = {
+	sam: [
+		{
+			username: "test",
+			text: "hi",
+		},
+		{
+			username: "test",
+			text: "hi",
+		},
+		{
+			username: "another username",
+			text: "hi",
+		},
+		{
+			username: "test",
+			text: "hi",
+		},
+		{
+			username: "test",
+			text: "hi",
+		},
+		{
+			username: "test",
+			text: "hi",
+		},
+	],
+	room2: [
+		{
+			username: "cob",
+			text: "aldgajsdjhhgasdkjj",
+		},
+	],
+};
+
+app.get("/messages/:room", (req: Request, res: Response) => {
+	const { room } = req.params;
+	console.log(room);
+	res.json(tempMessages[room] || {});
 });
 
 app.listen(PORT, () => {
