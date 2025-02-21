@@ -48,8 +48,7 @@ const tempMessages = {
 
 app.get("/messages/:room", (req: Request, res: Response) => {
 	const { room } = req.params;
-	console.log(room);
-	res.json(tempMessages[room] || {});
+	res.json(tempMessages[room] || []);
 });
 
 app.listen(PORT, () => {
